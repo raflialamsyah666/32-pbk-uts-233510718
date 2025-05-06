@@ -57,7 +57,32 @@ function hapus(id) {
 </script>
 
 <template>
-  
+  <h1>TODO LIST</h1>
+  <div class="input-filter-container">
+    <input type="text" v-model="teks" placeholder="Add new activity...">
+    <button v-on:click="tambahkan" :disabled="teks == ''">submit</button>
+    <div class="filter-buttons">
+      <button @click="filter = 'all'">All</button>
+      <button @click="filter = 'done'">Done</button>
+      <button @click="filter = 'undone'">Undone</button>
+    </div>
+  </div>
+
+  <ul>
+    <li v-for="list in filteredLists" :key="list.id">
+      <span>
+        {{ list.id }}. 
+        <span v-if="list.status">
+          <s>{{ list.text }}</s>
+        </span>
+        <span v-else>
+          {{ list.text }}
+        </span>
+      </span>
+      <input type="checkbox" v-model="list.status">
+      <button @click="hapus(list.id)" style="margin-left: 8px;">x</button>
+    </li>
+  </ul>
 </template>
 
 <style scoped>
