@@ -1,0 +1,24 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  overflow-x: hidden;
+}
+
+body {
+  background-image: url('./assets/pexels-breakingpic-3299.jpg');
+  height: 100vh;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  color: white;
+}
+
+#app {
+  min-height: 200vh;
+  background: transparent;
+  position: relative;
+  z-index: 1;
+}
